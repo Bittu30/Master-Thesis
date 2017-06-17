@@ -1,0 +1,20 @@
+\contentsline {chapter}{Acknowledgements}{i}
+\contentsline {chapter}{Abstract}{ii}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Bangalore's Great Water Distribution Problem}{1}
+\contentsline {section}{\numberline {1.2}Non Revenue Loss}{2}
+\contentsline {section}{\numberline {1.3}Why Non Revenue Loss is High}{2}
+\contentsline {chapter}{\numberline {2}Data Description}{3}
+\contentsline {section}{\numberline {2.1}Data Description}{3}
+\contentsline {section}{\numberline {2.2}Data Preprocessing}{3}
+\contentsline {chapter}{\numberline {3}Time Series Approach}{5}
+\contentsline {section}{\numberline {3.1}Introduction}{5}
+\contentsline {section}{\numberline {3.2}Simple Algorithm for detecting the Outliers(Inliers)}{7}
+\contentsline {subsubsection}{R implementation}{7}
+\contentsline {chapter}{\numberline {4}Fine Tuning}{8}
+\contentsline {section}{\numberline {4.1}Renaming bibliography}{8}
+\contentsline {section}{\numberline {4.2}Index}{8}
+\contentsline {section}{\numberline {4.3}Page Headings}{8}
+\contentsline {chapter}{\numberline {5}Conclusions}{9}
+\contentsline {chapter}{\numberline {A}My Appendix}{10}
+\contentsline {chapter}{References}{11}

@@ -1,0 +1,14 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2017.6.17)  17 JUN 2017 21:23
+entering extended mode
+**C:/Users/Home/Desktop/temp/iisclogo.sty
+(C:/Users/Home/Desktop/temp/iisclogo.sty
+! Undefined control sequence.
+l.13 \newlength
+               {\log@xunitlength}
+? 
+! Emergency stop.
+l.13 \newlength
+               {\log@xunitlength}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -1,0 +1,392 @@
+% This document describes how to use iiscthesis style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{iiscthes}
+%\usepackage{graphicx}
+
+\pagestyle{bfheadings}
+
+% Put your macros here
+%\newfont{\punkbx}{punkbx20}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The frontmatter environment for everything that comes with roman numbering
+\begin{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Everything is optional in the front matter.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         THE TITLEPAGE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Detecting Leakages in Water Distribution\\ 
+	Using Data Analytics Approach % \
+	\\
+	}
+\author{Priy Ratan Mishra}
+% For all the parameters below, take default values
+\submitdate{June 2017}
+\dept{Department of Management Studies}
+%\InterDescplinery
+%degreein{Master in Management}
+%\Master In Management
+%\me
+\iisclogotrue % Default is false
+% \figurespagefalse %default is true
+\tablespagetrue %default is false
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              COPYRIGHT                             %
+% Copyright is automatically included by the style file              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              DEDICATION                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{dedication}
+% You can design this page as you like
+\begin{center}
+TO \\[2em]
+\large\it My Mom and Dad\\
+\end{center}
+\end{dedication}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         ACKNOWLEDGEMENTS                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acknowledgements
+
+Many thanks to all the persons who made this style file. It will certainly
+live long! Detailed acknowledgements are available within the style file itself.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              VITA                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vita
+%IISc was born in 1909 and will celebrate its centenary with great fanfare
+%in the year 2008.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               PUBLICATIONS BASED ON THIS THESIS                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\publications
+
+%\begin{enumerate}
+%\item IISc INDEST Committee,  How to Typeset Theses:~Using iiscthesis
+%style for \LaTeX, Indian Institute of Science, 2004.
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              ABSTRACT                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+\sl
+	The leakages of water during the supply is the major non revenue loss
+	for BWSSB in Bangalore city,there are methods such as detect the change
+	of pressure every junction by flow meter,but this method is often 
+	cumbersome and very difficult to do at the more granular level.
+	
+	This project aims to detect the leakages in the pipelines by looking 
+	at the consumer monthly consumption volumes and employing the simple
+	and advanced statistical techniques and Data Mining approach.
+	
+	The method employed were simple residual analysis,exponential moving
+	average and Modified ARIMA in presence of outliers for time series 
+	analysis,and for the Data Mining approach the method like Local Outliers Factor
+	and Mahalonobis Distance was employed.
+	
+	Various algorithms generally picked same common outliers(discordant points)
+	
+	This analysis revealed that instead of using the flow meter method these techniques can also be employed to identify the discordant points or place
+	where there can be leakage.
+	
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              CONTENTS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makecontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              KEYWORDS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\keywords
+%{\large\bf{
+%LaTeX, thesis, project report, IISc style, style file.
+%}}
+
+%\vspace{10MM}
+
+%\noindent
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     NOTATION AND ABBREVIATIONS                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\notations
+	%No notation is used in this document. No abbreviations have been
+%used either.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+
+\section{Bangalore's Great Water Distribution Problem}
+	According to the report of Ministery of Urban Development(MOD) 20 out of 32 cities are water scacre,they provide water around 4.3 hours in a day on an average.
+	According to the MOD the permissible level to the water loss during distribution is around 20\%.But indian cities are doing far worse eg
+	Chandigarh waste around 30\%,while Bangalore waste around 46\% and Indore is
+	the worst off at 60\%.
+	
+	The major cause of losses is
+	\begin{enumerate}
+		\item Leakage in Pipe Line Burst
+		\item Water Theft
+		\item Private Tankers tapping the supply
+		\item Illegal Connection
+	\end{enumerate}
+	
+    In Bangalore the problem is more acute the water is distributed in normal monsoon times one is two days, while during bad monsoon times it is twice in week.
+    The problem is aggravated in the new part of Bangalore where still there is no
+    proper connection and citizens had to depend on the private tanker mafias.
+    
+    These problem results in the water war sometimes in slums and Govt. has to announce project to carry water from 100-150 km from hinterland to Bangalore.
+    
+
+    The dams construction also results in the catastrophic Ecological and Forest areas losses.According to the one estimates 12 dams which are responsible for supply of water in Mumbai has submerged 7000 ha out of which 705 ha where forest land, it also displaces the Aadivasis which are the most neglected part of Indian society.
+    
+   %Insert pic1 and pic2  parallely
+   %Insert Pic3 here 
+
+
+
+    
+    
+\section{Non Revenue Loss}
+	  While Developed Countries focuses on the Reuse,Recycle and improving the 
+	  efficiencies,cities of the developing countries are failing to provide the 
+	  adequate water to the masses.
+	  
+	  According to one study if the loss on distribution at BWSSB reduced to 46\%
+	  to 20\%, the water litres per person(lpcd) which around 75 will increase to 200 lpcd.This will also help in equitable distribution of water among the slums and high rise apartment which is very unequitable now.The Present distribution in slums is 28 lpcd and in high rise apartment is 200 lpcd.
+	 
+\section{Why Non Revenue Loss  is High}
+ 
+     Non Revenue loss is defines as the difference between the 
+     water supplied in the system and water is billed at the consume level.
+     
+      Industry wise NRW is defined as four types:-
+      \begin{enumerate}
+      	\item Pumped and  Billed(Where water meters do not exist).
+      	\item Unbilled and Authorize(Unmetered Use).
+      	\item Apparent Losses(Water Theft).
+      	\item Real Losses(Leaks and Burst).
+      \end{enumerate}
+     
+      While there are many factors for high NRW(Non Revenue Loss), but the prominent few are as follow:-
+    
+     \begin{enumerate}
+     	\item Lack of Meters
+     	\item No systematic record of Assets
+     	\item Low Cost Recovery in Project
+     	\item High Subsidies
+     \end{enumerate}
+     
+Bangalore has good meter connections and there are District Meter Areas(DMA),
+there can be case of matching the DMA reading with consumer reading and check 
+for the mismatch,but these approaches are not always reliable and human effort is also more and most importantly the not every area of Bangalore has DMA.
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Data Description}
+\section{Data Description}
+ BWSSB divide the Bangalore into twelve Region and they have the consumer billing data of each region.
+ There was total of 10 lakh or 1 Million records was there,where each record represent the one consumer detail along with the month consumption of water.
+ 
+ The total record have 4 year of data from 2006 to 2009 and idea was to use this
+ information for devising techniques to find the discordant regions or subregions.
+ %insert Pic4
+ 
+ \section{Data Preprocessing}
+  The entire data was divided into 12 Region at the beginning based on the unique 
+  Region number in the dataset, the idea was to divide the data into region and then subregion wise and then employ various data analytics algorithm to detect the discordant region and subregion in dataset.
+  
+  The entire following steps was performed during Data Preprocessing:-
+  \begin{enumerate}
+  	\item Divide the Entire Data into 12 Regions 
+  	\item Aggregate the consumption of users, month wise across 48 months in each Region.
+  	\item Further Divide the data into 18 subregions based on the address field in the Region data set.
+  	\item Aggregate the consumption of users month wise across 48 months in each Region.
+  \end{enumerate}
+  The idea was to go more granular level but because the more granular detail was missing at the address fields.
+  The granular level to street was dropped and analysis was done on the subregion granularity.
+  
+  Details fo the 12 Sub Region is as follows:-
+  \begin{enumerate}
+  	\item Banshankari Phase 1
+  	\item Banshankari Phase 2
+  	\item Banshankari Phase 3
+  	\item Chamrajpet
+  	\item Sadashivnagar
+  	\item SanjayNagar
+  	\item Geddelahalli
+  	\item IndiraNagar
+    \item Malleswaram
+  	\item LN\_Pura
+  	\item Srirampura
+  	\item Yeswanthpur 
+  	\item Binnamanagla
+  	\item Non\_Thippasandra
+  	\item Prakash\_Nagar
+  	\item RajajiNagar
+  	\item Okalipura
+  	\item R\_C\_Pura
+  \end{enumerate}
+     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Time Series Approach}
+
+\section{Introduction}
+A time series is a sequence of observations taken sequentially in time. Many sets
+of data appear as time series: a monthly sequence of the quantity of goods shipped
+from a factory, a weekly series of the number of road accidents, hourly observations made on the yield of a chemical process, and so on.
+
+Examples of time series abound in such fields as economics, business, engineering, the natural sciences, and the social sciences.
+
+An intrinsic feature of a time series is that, typically, adjacent observations are
+dependent.
+Time series analysis is concerned with techniques for the analysis of this dependence.
+
+There are three major area of application of time series and these are:-
+\begin{enumerate}
+	\item The forecasting of future values of a time series from current and past values.
+	\item The determination of the transfer function the
+	determination of a dynamic input–output model that can show the effect on
+	the output of a system of any given series of inputs.
+	\item The use of indicator input variables in transfer function models to represent
+	and assess the effects of unusual intervention events on the behavior of a
+	time series.
+	%insert figure 5 here
+	Application of indicator variable in transfer function models in presence of the unusual event was utilized in one of the Algo. during our analysis.
+	%insert figure 6 here 
+	Usually the series is decomposed into Trend seasonality and Random part 
+	and we are interested in modeling the Random Part of series ARIMA model
+	
+\newpage
+	Typical univariate modeling of time series in the absence of outliers includes the following:-
+\begin{enumerate}
+	\item Identification of Order of ARIMA.
+	\item Estimation of Parameters.
+	\item Residuals Analysis
+\end{enumerate}
+\end{enumerate}
+
+
+\bigskip	
+\begin{center}
+\begin{tabular}{|ll|}
+	\hline
+	textwidth:& 450pt (approx.\ 16cm) \\
+        textheight:& 635pt (approx.\ 8.8cm) \\
+        side margins:& 3.5cm \\
+	headsep:& 40pt\\
+	\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+
+\newpage
+\section{Simple Algorithm for detecting the Outliers(Inliers)}
+	The basic idea here is to find the robust estimate of trends and Seasonality
+	and subtract them.
+	Then find the outliers,The test for residual Outliers is the same as for the standard box plot ,points greater than 1.5 IQR above or below the upper and lower quartiles are assumed outliers.
+	The number of IQRs above/below these thresholds is returned as an Outlier "score". So the score can be any positive number, and will be zero for non-outliers.
+	%charts of this code.
+\subsubsection{R implementation}
+    In R this can be acheived by the STL function.
+    The seasonal component is found by loess smoothing the seasonal sub-series (the series of all January values, ...); if s.window = "periodic" smoothing is effectively replaced by taking the mean. The seasonal values are removed, and the remainder smoothed to find the trend. The overall level is removed from the seasonal component and added to the trend component. This process is iterated a few times. The remainder component is the residuals from the seasonal plus trend fit.
+    %Insert Pic7 here
+	This test perform well when there is very small time dependence among the 
+	residuals.
+
+\begin{enumerate}
+ \item New   environments   ``singlespace'',   ``onehalfspace''    and
+``doublespace'' are provided, within which single, onehalf and double
+    spacing will apply.
+	 \item Double spacing is turned off within  table of contents,
+		footnotes and floats (figures and tables).
+	 \item Proper double spacing happens below tabular environments and in other
+	    places where \LaTeX\ uses a strut.
+	 \item Slightly more space is inserted before footnotes.
+	 \item Fixes spacing before and after displayed math.
+\end{enumerate}
+
+\bigskip
+\hrule
+\begin{singlespace}
+	This is a   sample single    spaced text  created  using   the
+\verb|singlespace| environment.  Would you prefer this or
+the default double spaced one? You can have intermediate effect by
+\verb|\setstretch{1.3}|.
+\end{singlespace}
+
+\medskip
+\hrule
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Fine Tuning}
+
+	IISc thesis  style defines the following  macros  to fine  tune the
+typesetting according to your taste.
+
+\section{Renaming bibliography}
+	Use  \verb|\bibtitle{References}| to   get ``References''   (or
+whatever  argument  you  give)  as the  heading  for the  Bibliography
+section. ``Bibliography'' is the default.
+
+\section{Index}
+	\index{Index}To produce  an index for  your thesis,  mark   index
+entries in  the text by  using  \verb|\index| command.  Then run  {\tt
+makeindex} like {\tt bibtex} after the first pass of \LaTeX. This will
+produce a file {\tt jobname.ind} which will get included automatically
+in the subsequent passes.  If you do not run makeindex,  no index gets
+created.  For more details see the \LaTeX\ book \cite{latex}and  {\tt makeindex}
+documentation.
+
+\section{Page Headings}
+	\index{page   headings}Now you can     have page  headings  in
+boldface instead of slanted  and upper-cased chapter/section headings.  It
+also underlines the headings as  in the \LaTeX\ book \cite{latex}.  See the heading
+on  this  page. To use  this feature, place \verb|\pagestyle{bfheadings}| in your
+preamble.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Conclusions}
+  IISc thesis style provides a simple way to typeset 
+theses in an excellent and pleasant manner. Its use is highly recommended. 
+Additions or modifications are most welcome. Send them (and the bug reports) to 
+\begin{center}
+The Almighty\\
+$<$almighty@admin.iisc.ernet.in$>$
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\chapter{My Appendix}
+
+Bibliography commands as in the LaTeX book \cite{latex} may be used. For more details
+on LaTeX, please see \cite{latex}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Bibliography or References
+
+\bibtitle{References}
+\begin{thebibliography}{99}
+\bibitem{latex}
+  Lamport, L.  LaTeX:~A Documentation System, Addison-Wesley Publishing Company, 1986.
+\end{thebibliography}
+\end{document}
